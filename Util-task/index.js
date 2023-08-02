@@ -13,7 +13,6 @@ const chunks = lod.chunk(numbers, 3);
 
 console.log("Chunks:", chunks);
 console.log("Original array:", numbers);
-console.log("Original array:", numbers);
 console.log("Sorted array:", sorted);
 console.log("Filtered array:", filtered);
 console.log("Maximum value:", max);
