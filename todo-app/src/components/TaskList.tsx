@@ -25,7 +25,7 @@ const TaskList: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4">
+    <div className="bg-white rounded-lg shadow-sm p-4">
       <ul>
         {tasks.map((task) => (
           <li key={task.id} className="flex justify-between items-center py-2">
