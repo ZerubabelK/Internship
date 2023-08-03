@@ -1,3 +1,6 @@
+# Description of the app
+This project is a todo application that allows users to add, update and delete a task.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
