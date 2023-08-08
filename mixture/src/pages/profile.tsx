@@ -20,7 +20,7 @@ const user: User = {
   profile_image: "./src/assets/Avatar_Image.svg",
   bio: "I am a passionate and creative writer who loves to explore new topics and share my insights with the world. I write about anything that sparks my curiosity, from travel and culture to science and technology. I enjoy learning new things and challenging myself to improve my skills and knowledge. My goal is to inspire and entertain my readers with engaging and informative content. You can find some of my work on [my website] or follow me on [Twitter] and [Instagram]. Thank you for reading! 😊",
   location: "Addis Ababa, Ethiopia",
-  website: "https://janedoe.com",
+  // website: "https://janedoe.com",
 };
 
 // Profile page component
