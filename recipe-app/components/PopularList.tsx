@@ -29,7 +29,8 @@ const PopularList: React.FC<Prop> = ({ recipes }) => {
         </div>
         <div className="lg:max-w-screen-xl mx-auto lg:grid sm:max-w-screen-sm sm:grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 flex flex-wrap justify-center gap-8 mt-6">
           {recipes.map(
-            (recipe, index) => index < 3 && <RecipeCard recipe={recipe} />
+            (recipe, index) =>
+              index < 3 && <RecipeCard recipe={recipe} key={index} />
           )}
         </div>
       </div>

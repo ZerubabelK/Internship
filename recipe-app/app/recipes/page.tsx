@@ -13,8 +13,8 @@ const LandingPage: React.FC = () => {
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="lg:max-w-screen-xl mx-auto lg:grid md:grid-cols-2 lg:grid-cols-3 flex flex-wrap justify-center gap-8">
-              {recipes.map((recipe) => (
-                <RecipeCard recipe={recipe} />
+              {recipes.map((recipe, index) => (
+                <RecipeCard recipe={recipe} key={index} />
               ))}
             </div>
           </div>
