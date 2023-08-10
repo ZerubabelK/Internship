@@ -8,7 +8,6 @@ import { useGetRecipesQuery } from "./redux/recipe-api";
 const LandingPage: React.FC = () => {
   const { data, isLoading, error } = useGetRecipesQuery();
   const [recipes, setRecipes] = React.useState<Recipe[]>();
-  console.log(data);
 
   return (
     <main className="bg-gray-100">

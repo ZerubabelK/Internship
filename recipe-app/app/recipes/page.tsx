@@ -1,13 +1,14 @@
 "use client";
 import RecipeCard from "@/components/RecipeCard";
-import recipe_mock, { Recipe } from "@/data/recipe_mock";
-import Image from "next/image";
 import React from "react";
 import { useGetRecipesQuery } from "../redux/recipe-api";
 import Skeleton from "@/components/Skeleton";
+import { useRouter } from "next/navigation";
 
 const LandingPage: React.FC = () => {
   const { data, isLoading, error } = useGetRecipesQuery();
+
+  const router = useRouter();
   if (error) {
     return (
       <div className="bg-white py-16 px-4 overflow-hidden">
@@ -18,12 +19,12 @@ const LandingPage: React.FC = () => {
           </p>
         </div>
         <div className="flex justify-center mt-4">
-          <a
-            href="javascript:history.back()"
+          <button
+            onClick={() => router.back()}
             className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
           >
             Go Back
-          </a>
+          </button>
         </div>
       </div>
     );
