@@ -1,11 +1,12 @@
 import { Recipe } from "@/data/recipe_mock";
 import Link from "next/link";
 import RecipeCard from "./RecipeCard";
-
+import Skeleton from "@/components/Skeleton";
 interface Prop {
-  recipes: Recipe[];
+  recipes?: Recipe[];
+  isLoading?: boolean;
 }
-const PopularList: React.FC<Prop> = ({ recipes }) => {
+const PopularList: React.FC<Prop> = ({ recipes, isLoading }) => {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -28,10 +29,13 @@ const PopularList: React.FC<Prop> = ({ recipes }) => {
           </div>
         </div>
         <div className="lg:max-w-screen-xl mx-auto lg:grid sm:max-w-screen-sm sm:grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 flex flex-wrap justify-center gap-8 mt-6">
-          {recipes.map(
-            (recipe, index) =>
-              index < 3 && <RecipeCard recipe={recipe} key={index} />
-          )}
+          {isLoading &&
+            new Array(3).fill(0).map((_, i) => <Skeleton key={i} />)}
+          {recipes &&
+            recipes.map(
+              (recipe, index) =>
+                index < 3 && <RecipeCard recipe={recipe} key={index} />
+            )}
         </div>
       </div>
     </section>
