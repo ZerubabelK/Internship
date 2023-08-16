@@ -66,7 +66,8 @@ const TaskList: React.FC = () => {
       <div className="flex justify-end">
         <div className="relative w-max">
           <button
-            className="relative z-10 flex space-x-2 rounded-md bg-white p-2 focus:outline-none"
+            data-testid="filter-button"
+            className="filter-button relative z-10 flex space-x-2 rounded-md bg-white p-2 focus:outline-none"
             onClick={() => setToggle(!toggle)}
           >
             <span>Filter</span>
@@ -86,22 +87,27 @@ const TaskList: React.FC = () => {
           {toggle && (
             <div
               x-show="dropdownOpen"
-              className="absolute right-0 mt-2 py-2  bg-white rounded-md shadow-xl z-20"
+              data-testid="dropdown"
+              className="dropdown absolute right-0 mt-2 py-2  bg-white rounded-md shadow-xl z-20"
             >
               <button
-                className="block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                data-testid="all-filter"
+                className="all-filter block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 onClick={() => handleFilter("incomplete")}
               >
                 All
               </button>
               <button
-                className="block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                data-testid="incomplete-filter"
+                className="incomplete-filter block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 onClick={() => handleFilter("incomplete")}
               >
                 Incomplete
               </button>
+
               <button
-                className="block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                data-testid="complete-filter"
+                className="complete-filter block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 onClick={() => handleFilter("completed")}
               >
                 Complete
@@ -110,7 +116,7 @@ const TaskList: React.FC = () => {
           )}
         </div>
       </div>
-      <ul>
+      <ul data-testid="task-list">
         {displayTasks().map((task: Task) => (
           <li
             key={task.id}
@@ -121,18 +127,22 @@ const TaskList: React.FC = () => {
                 <input
                   type="text"
                   value={newTaskName}
+                  data-testid={`edit-input-${task.id}`}
                   onChange={(e) => setNewTaskName(e.target.value)}
-                  className="border border-gray-400 rounded-lg p-2 w-full mr-2"
+                  className="edit border border-gray-400 rounded-lg p-2 w-full mr-2"
                 />
                 <button
                   onClick={handleEditSubmit}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  type="button"
+                  data-testid={`save-button-${task.id}`}
+                  className="save-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Save
                 </button>
                 <button
+                  type="button"
                   onClick={handleEditCancel}
-                  className="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded ml-2"
+                  className="cancel-button bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded ml-2"
                 >
                   Cancel
                 </button>
@@ -180,6 +190,7 @@ const TaskList: React.FC = () => {
                     </svg>
                     <select
                       className=" font-bold rounded border-2 border-gray-200 text-gray-600 h-10 w-32 pl-2 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+                      data-testid="task-status"
                       onChange={(e) => {
                         handleTaskStatusChange(
                           task.id,
@@ -194,14 +205,18 @@ const TaskList: React.FC = () => {
                     </select>
                   </div>
                   <button
+                    type="button"
+                    data-testid={`edit-button-${task.id}`}
                     onClick={() => handleEdit(task)}
-                    className="text-yellow-500 hover:text-yellow-700  font-bold py-2 px-4 rounded mr-2"
+                    className="edit-button text-yellow-500 hover:text-yellow-700  font-bold py-2 px-4 rounded mr-2"
                   >
                     edit
                   </button>
                   <button
+                    type="button"
+                    data-testid={`delete-button-${task.id}`}
                     onClick={() => handleDelete(task.id)}
-                    className="text-red-500 hover:text-red-700  font-bold py-2 px-4 rounded"
+                    className="delete-button text-red-500 hover:text-red-700  font-bold py-2 px-4 rounded"
                   >
                     delete
                   </button>

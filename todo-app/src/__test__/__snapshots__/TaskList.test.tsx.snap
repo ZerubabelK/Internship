@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskList component Should delete the task 1`] = `
+Array [
+  Object {
+    "payload": 1,
+    "type": "DELETE_TASK",
+  },
+]
+`;
+
+exports[`TaskList component Should dispatch the action to change the filter 1`] = `
+Array [
+  Object {
+    "payload": "incomplete",
+    "type": "FILTER_TASKS",
+  },
+]
+`;
+
+exports[`TaskList component Should edit the task 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "taskId": 1,
+      "updatedTask": Object {
+        "completed": false,
+        "id": 1,
+        "name": "Task 1 Edited",
+      },
+    },
+    "type": "EDIT_TASK",
+  },
+]
+`;

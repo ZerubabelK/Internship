@@ -23,14 +23,17 @@ const AddTaskForm: React.FC = () => {
     <div className="bg-white rounded-lg p-4 mt-4">
       <form onSubmit={handleSubmit} className="grid grid-cols-12 items-center">
         <input
+          required
           type="text"
           value={newTaskName}
           onChange={(e) => setNewTaskName(e.target.value)}
           className="border border-gray-400 rounded-lg p-2 mr-2 col-span-10"
           placeholder="Enter a new task..."
+          data-testid="add-task-input"
         />
         <button
           type="submit"
+          data-testid="add-task-button"
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded col-span-2"
         >
           Add Task

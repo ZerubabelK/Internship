@@ -22,3 +22,7 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+if ((window as any).Cypress) {
+  (window as any).store = store;
+}
